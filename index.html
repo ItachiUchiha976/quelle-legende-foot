@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a2a18">
+
+<title>Quelle Légende du Foot es-tu ? — Le Test | FootStats</title>
+<meta name="description" content="Pelé, Zidane, Maradona, Messi… À quelle légende du football ressembles-tu ? Réponds à 10 questions et découvre ton joueur de légende. Test gratuit, rapide, résultat à partager.">
+<meta name="author" content="FootStats">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://itachiuchiha976.github.io/quelle-legende-foot/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FootStats">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Quelle Légende du Foot es-tu ?">
+<meta property="og:description" content="Zidane, Pelé, Maradona, Messi, Cruyff… Découvre à quelle légende du football tu ressembles. 16 légendes possibles, résultat à partager.">
+<meta property="og:url" content="https://itachiuchiha976.github.io/quelle-legende-foot/">
+<meta property="og:image" content="https://itachiuchiha976.github.io/quelle-legende-foot/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quelle Légende du Foot es-tu ?">
+<meta name="twitter:description" content="Découvre à quelle légende du football tu ressembles. 16 légendes possibles, résultat à partager.">
+<meta name="twitter:image" content="https://itachiuchiha976.github.io/quelle-legende-foot/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<!-- JSON-LD : Quiz + WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "FootStats",
+      "url": "https://itachiuchiha976.github.io/quelle-legende-foot/",
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Quelle Légende du Foot es-tu ?",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "inLanguage": "fr-FR",
+      "url": "https://itachiuchiha976.github.io/quelle-legende-foot/",
+      "description": "Test de personnalité football : découvre à quelle légende du foot tu ressembles parmi 16 icônes (Pelé, Zidane, Maradona, Messi, Cruyff, Beckenbauer…). Résultat partageable."
+    }
+  ]
+}
+</script>
+
+<!-- ===================================================================
+     MONÉTISATION (à activer plus tard) :
+     Google AdSense — coller le script officiel ici une fois le compte
+     approuvé. NE PAS inventer d'ID client. Exemple de placeholder :
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+==================================================================== -->
+</head>
+<body>
+
+<div class="pitch-bg" aria-hidden="true"></div>
+
+<main class="wrap">
+
+  <!-- ============ ÉCRAN ACCUEIL ============ -->
+  <section id="screen-intro" class="screen screen--active card">
+    <p class="brandline">⚽ FOOTSTATS · LE TEST DES LÉGENDES</p>
+    <h1 class="title">Quelle <span class="hl">légende du foot</span> es-tu&nbsp;?</h1>
+    <p class="subtitle">Le test qui révèle ton joueur de légende.</p>
+    <p class="intro-text">
+      Pelé, Zidane, Maradona, Messi, Cruyff, Ronaldinho…
+      Et si tu partageais l'ADN d'un <strong>monstre sacré&nbsp;?</strong>
+      Réponds honnêtement à <strong>10 questions</strong> et découvre à quelle
+      <em>légende du football</em> tu ressembles vraiment — parmi <strong>16 icônes</strong>.
+    </p>
+    <button id="btn-start" class="btn btn--primary btn--big">Lancer le test ⚽</button>
+    <p class="meta-line">10 questions · ~2 minutes · 100&nbsp;% gratuit</p>
+  </section>
+
+  <!-- ============ ÉCRAN QUIZ ============ -->
+  <section id="screen-quiz" class="screen card">
+    <div class="quiz-top">
+      <span id="q-counter" class="counter">Question 1 / 10</span>
+      <button id="btn-restart-mini" class="restart-mini" type="button" title="Recommencer">↺</button>
+    </div>
+    <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+
+    <h2 id="q-text" class="question">…</h2>
+
+    <div id="answers" class="answers"><!-- options injectées --></div>
+  </section>
+
+  <!-- ============ ÉCRAN RÉSULTAT ============ -->
+  <section id="screen-result" class="screen card">
+    <p class="brandline">TON RÉSULTAT</p>
+    <div class="result-head">
+      <span id="res-flag" class="res-flag">🏆</span>
+      <p class="res-pre">Tu es…</p>
+      <h2 id="res-name" class="res-name">…</h2>
+      <p id="res-archetype" class="res-archetype">…</p>
+      <p id="res-meta" class="res-meta">…</p>
+    </div>
+
+    <p id="res-desc" class="res-desc">…</p>
+
+    <div id="res-tags" class="res-tags"><!-- tags --></div>
+
+    <div class="fact-box">
+      <p class="fact-title">💡 Le savais-tu&nbsp;?</p>
+      <ul id="res-facts" class="fact-list"><!-- faits vérifiés --></ul>
+    </div>
+
+    <div class="share-row">
+      <button id="btn-share" class="btn btn--gold">📲 Partager mon résultat</button>
+      <button id="btn-download" class="btn btn--ghost">⬇️ Enregistrer l'image</button>
+    </div>
+
+    <!-- ====== FUNNEL : abonnement chaîne FootStats ====== -->
+    <div class="cta-yt">
+      <p class="cta-yt-title">Tu kiffes le foot et son Histoire&nbsp;?</p>
+      <p class="cta-yt-sub">FootStats, c'est les stats et les histoires de foot qui rendent accro. Rejoins-nous 👇</p>
+      <a id="cta-sub" class="btn btn--yt" href="https://www.youtube.com/@FootStats2026Fr?sub_confirmation=1" target="_blank" rel="noopener">
+        ▶️ S'abonner à FootStats
+      </a>
+    </div>
+
+    <!-- ====== FUNNEL : capture email (stub localStorage) ====== -->
+    <form id="email-form" class="email-cap" novalidate>
+      <p class="email-title">📩 Reçois les prochains tests &amp; le best-of des légendes</p>
+      <div class="email-row">
+        <input id="email-input" class="email-input" type="email" inputmode="email"
+               placeholder="ton@email.com" autocomplete="email" aria-label="Ton adresse email">
+        <button class="btn btn--primary" type="submit">OK</button>
+      </div>
+      <p id="email-msg" class="email-msg" hidden></p>
+      <p class="email-note">Zéro spam. Juste les meilleurs quiz foot, de temps en temps.</p>
+    </form>
+
+    <p class="more-soon">🔜 Bientôt&nbsp;: « Devine la légende », le quiz des records et bien plus.</p>
+
+    <button id="btn-replay" class="btn btn--ghost btn--big">↻ Refaire le test</button>
+
+    <!-- ====== Section ressources (prête pour l'affiliation) ====== -->
+    <div class="resources">
+      <p class="res-h">Pour aller plus loin</p>
+      <ul class="res-links">
+        <li>📺 La chaîne <a href="https://www.youtube.com/@FootStats2026Fr?sub_confirmation=1" target="_blank" rel="noopener">FootStats</a> — stats &amp; histoires de foot</li>
+        <!-- Emplacements affiliation (livres, maillots, docs) à ajouter ici -->
+      </ul>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Fait avec ⚽ par <strong>FootStats</strong> · Test 100&nbsp;% gratuit</p>
+    <p class="foot-fine">Faits vérifiés (FIFA, UEFA, Guinness). Test de personnalité ludique, sans valeur scientifique.</p>
+  </footer>
+</main>
+
+<!-- canvas caché pour générer l'image de partage -->
+<canvas id="share-canvas" width="1080" height="1080" hidden></canvas>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
