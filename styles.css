@@ -219,6 +219,76 @@ body{
 .email-msg{ margin-top:10px; font-weight:600; font-size:.9rem; color:var(--grass); }
 .email-note{ margin-top:10px; font-size:.78rem; color:var(--ink-soft); }
 
+/* Offre Gumroad — Almanach & Grand Quiz CdM 2026 */
+.cta-offer{
+  background:linear-gradient(180deg,#1a3d1f 0%,#0f2e17 100%);
+  border:1.5px solid rgba(245,197,66,.45);
+  border-radius:16px;
+  padding:22px 18px;
+  text-align:center;
+  margin-bottom:18px;
+}
+.cta-offer-kicker{
+  font-family:'Oswald',sans-serif;
+  letter-spacing:.12em;
+  font-size:.72rem;
+  color:var(--gold);
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:8px;
+}
+.cta-offer-title{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  font-size:clamp(1.2rem,5vw,1.6rem);
+  line-height:1.15;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.cta-offer-pitch{
+  color:var(--ink-soft);
+  font-size:.96rem;
+  margin-bottom:14px;
+}
+.cta-offer-points{
+  list-style:none;
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  margin-bottom:18px;
+  font-size:.92rem;
+  color:var(--ink-soft);
+}
+.cta-offer-price{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+.price-tag{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  font-size:1.65rem;
+  color:var(--gold);
+}
+.price-access{
+  font-size:.84rem;
+  color:var(--grass);
+  font-weight:600;
+  background:rgba(39,196,106,.12);
+  border:1px solid rgba(39,196,106,.3);
+  border-radius:99px;
+  padding:3px 10px;
+}
+.cta-offer-btn{ margin-bottom:10px; }
+.cta-offer-fine{
+  font-size:.78rem;
+  color:var(--ink-soft);
+  margin-top:8px;
+}
+
 .more-soon{ text-align:center; font-size:.92rem; color:var(--ink-soft); margin-bottom:18px; }
 
 /* Ressources */
