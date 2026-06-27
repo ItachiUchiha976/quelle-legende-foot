@@ -62,10 +62,12 @@
 </script>
 
 <!-- ===================================================================
-     MONÉTISATION (à activer plus tard) :
-     Google AdSense — coller le script officiel ici une fois le compte
-     approuvé. NE PAS inventer d'ID client. Exemple de placeholder :
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+     MONÉTISATION — TODO (revue 27/06/2026) :
+     - AdSense : activer SEULEMENT après compte approuvé + ~1000 visites/mois.
+       NE PAS inventer d'ID client. Placeholder officiel :
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+     - Revenu live AUJOURD'HUI : capture email VIP FootPerf (Web3Forms) +
+       lien partenaire Comparateur IA (section ressources). Pas de cul-de-sac.
 ==================================================================== -->
 </head>
 <body>
@@ -122,42 +124,49 @@
       <ul id="res-facts" class="fact-list"><!-- faits vérifiés --></ul>
     </div>
 
-    <div class="share-row">
-      <button id="btn-share" class="btn btn--gold">📲 Partager mon résultat</button>
-      <button id="btn-download" class="btn btn--ghost">⬇️ Enregistrer l'image</button>
-    </div>
-
-    <!-- ====== FUNNEL : abonnement chaîne FootStats ====== -->
+    <!-- ====== FUNNEL #1 : abonnement chaîne FootStats (action business prioritaire) ====== -->
     <div class="cta-yt">
       <p class="cta-yt-title">Tu kiffes le foot et son Histoire&nbsp;?</p>
-      <p class="cta-yt-sub">FootStats, c'est les stats et les histoires de foot qui rendent accro. Rejoins-nous 👇</p>
+      <p class="cta-yt-sub">FootStats, c'est les vraies stats et les vraies histoires de foot — pas de blabla. Tu vas devenir incollable. Rejoins-nous 👇</p>
       <a id="cta-sub" class="btn btn--yt" href="https://www.youtube.com/@FootStats2026Fr?sub_confirmation=1" target="_blank" rel="noopener">
         ▶️ S'abonner à FootStats
       </a>
     </div>
 
-    <!-- ====== FUNNEL : capture email (stub localStorage) ====== -->
-    <form id="email-form" class="email-cap" novalidate>
-      <p class="email-title">📩 Reçois les prochains tests &amp; le best-of des légendes</p>
+    <!-- ====== FUNNEL #2 : capture email — Liste VIP boutique FootPerf (Web3Forms) ====== -->
+    <form id="email-form" class="email-cap"
+          action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+      <input type="hidden" name="subject" value="Quelle Légende Foot — nouveau lead VIP FootPerf">
+      <input type="hidden" name="from_name" value="Quelle Légende Foot">
+      <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+      <p class="email-title">🛒 Liste VIP FootPerf — l'équipement des vrais fans</p>
+      <p class="email-sub">Sois prévenu(e) de l'ouverture et reçois <strong>-10&nbsp;% + l'accès prioritaire</strong>. (Ouverture imminente.)</p>
       <div class="email-row">
-        <input id="email-input" class="email-input" type="email" inputmode="email"
-               placeholder="ton@email.com" autocomplete="email" aria-label="Ton adresse email">
-        <button class="btn btn--primary" type="submit">OK</button>
+        <input id="email-input" class="email-input" type="email" name="email" required inputmode="email"
+               placeholder="ton@email.com" autocomplete="email" aria-label="Ton adresse email"
+               aria-describedby="email-note">
+        <button class="btn btn--primary" type="submit">Je veux le -10&nbsp;%</button>
       </div>
       <p id="email-msg" class="email-msg" hidden></p>
-      <p class="email-note">Zéro spam. Juste les meilleurs quiz foot, de temps en temps.</p>
+      <p id="email-note" class="email-note">Pas de spam. Désinscription en 1 clic. Email utilisé uniquement pour la liste VIP FootPerf (RGPD).</p>
     </form>
+
+    <div class="share-row">
+      <button id="btn-share" class="btn btn--gold">📲 Partager mon résultat</button>
+      <button id="btn-download" class="btn btn--ghost">⬇️ Enregistrer l'image</button>
+    </div>
 
     <p class="more-soon">🔜 Bientôt&nbsp;: « Devine la légende », le quiz des records et bien plus.</p>
 
     <button id="btn-replay" class="btn btn--ghost btn--big">↻ Refaire le test</button>
 
-    <!-- ====== Section ressources (prête pour l'affiliation) ====== -->
+    <!-- ====== Section ressources ====== -->
     <div class="resources">
       <p class="res-h">Pour aller plus loin</p>
       <ul class="res-links">
         <li>📺 La chaîne <a href="https://www.youtube.com/@FootStats2026Fr?sub_confirmation=1" target="_blank" rel="noopener">FootStats</a> — stats &amp; histoires de foot</li>
-        <!-- Emplacements affiliation (livres, maillots, docs) à ajouter ici -->
+        <li>🤖 <a href="https://itachiuchiha976.github.io/comparateur-ia/" target="_blank" rel="sponsored nofollow noopener">Comparateur d'outils IA</a> — pour analyser le foot autrement <span class="res-fine">(lien partenaire)</span></li>
       </ul>
     </div>
   </section>

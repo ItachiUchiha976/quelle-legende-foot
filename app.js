@@ -238,11 +238,13 @@
     canvasToBlob(canvas).then(function (blob) { downloadCard(blob); });
   }
 
-  /* ---------- Email (stub localStorage) ---------- */
+  /* ---------- Email (Web3Forms — AJAX) ---------- */
   function handleEmail(e) {
     e.preventDefault();
+    var form = e.target;
     var input = $("email-input");
     var msg = $("email-msg");
+    var btn = form.querySelector("button[type=submit]");
     var val = (input.value || "").trim();
     var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
     if (!ok) {
@@ -250,14 +252,34 @@
       msg.textContent = "Oups, vérifie ton adresse email 🙂";
       return;
     }
-    try {
-      var list = JSON.parse(localStorage.getItem("footstats_emails") || "[]");
-      list.push({ email: val, legende: resultId, date: new Date().toISOString() });
-      localStorage.setItem("footstats_emails", JSON.stringify(list));
-    } catch (err) { /* localStorage indispo : on ignore */ }
-    input.value = "";
-    msg.hidden = false; msg.style.color = "#27c46a";
-    msg.textContent = "Inscrit ! 🎉 Pense à t'abonner à FootStats juste au-dessus 👆";
+
+    // on joint la légende obtenue au lead (contexte utile)
+    var data = new FormData(form);
+    if (resultId && LEGENDS[resultId]) data.append("legende", LEGENDS[resultId].name);
+
+    if (btn) { btn.disabled = true; btn.textContent = "Envoi…"; }
+
+    fetch(form.action, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: data
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; });
+    }).then(function (json) {
+      if (json && json.success) {
+        form.querySelector(".email-row").style.display = "none";
+        var t = form.querySelector(".email-title"); if (t) t.style.display = "none";
+        var s = form.querySelector(".email-sub"); if (s) s.style.display = "none";
+        msg.hidden = false; msg.style.color = "#27c46a";
+        msg.textContent = "Merci ! Tu es sur la liste VIP FootPerf 🎉 Pense à t'abonner à FootStats juste au-dessus 👆";
+      } else {
+        throw new Error("submit failed");
+      }
+    }).catch(function () {
+      if (btn) { btn.disabled = false; btn.textContent = "Je veux le -10 %"; }
+      msg.hidden = false; msg.style.color = "#ff8a8a";
+      msg.textContent = "Petit souci d'envoi. Réessaie dans un instant 🙏";
+    });
   }
 
   /* ---------- init ---------- */
