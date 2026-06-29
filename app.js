@@ -272,9 +272,9 @@
         var s = form.querySelector(".email-sub"); if (s) s.style.display = "none";
         msg.hidden = false; msg.style.color = "#27c46a";
         msg.innerHTML = "Merci, tu es sur la liste 🎉 En attendant le Mondial : " +
-          "<a href=\"https://boutiquefred.gumroad.com/l/almanach-quiz-cdm2026\" target=\"_blank\" rel=\"noopener\">" +
-          "l'Almanach &amp; le Grand Quiz CdM 2026 (75 questions)</a> → " +
-          "https://boutiquefred.gumroad.com/l/almanach-quiz-cdm2026";
+          "<a href=\"https://ko-fi.com/s/a60bdc1106\" target=\"_blank\" rel=\"noopener\">" +
+          "l'Almanach &amp; le Grand Quiz CdM 2026</a> → " +
+          "https://ko-fi.com/s/a60bdc1106";
       } else {
         throw new Error("submit failed");
       }
