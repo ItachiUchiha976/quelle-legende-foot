@@ -271,7 +271,10 @@
         var t = form.querySelector(".email-title"); if (t) t.style.display = "none";
         var s = form.querySelector(".email-sub"); if (s) s.style.display = "none";
         msg.hidden = false; msg.style.color = "#27c46a";
-        msg.textContent = "Merci ! Tu es sur la liste VIP FootPerf 🎉 Pense à t'abonner à FootStats juste au-dessus 👆";
+        msg.innerHTML = "Merci, tu es sur la liste 🎉 En attendant le Mondial : " +
+          "<a href=\"https://boutiquefred.gumroad.com/l/almanach-quiz-cdm2026\" target=\"_blank\" rel=\"noopener\">" +
+          "l'Almanach &amp; le Grand Quiz CdM 2026 (75 questions)</a> → " +
+          "https://boutiquefred.gumroad.com/l/almanach-quiz-cdm2026";
       } else {
         throw new Error("submit failed");
       }
