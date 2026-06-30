@@ -96,6 +96,20 @@ body{
 .intro-text em{ color:var(--gold); font-style:normal; font-weight:600; }
 .meta-line{ margin-top:14px; font-size:.84rem; color:var(--ink-soft); text-align:center; }
 
+/* Accès direct à l'offre depuis l'écran d'accueil (fenêtre CdM) — secondaire au test */
+.intro-offer{ margin-top:22px; padding-top:18px; border-top:1px solid var(--line); text-align:center; }
+.intro-offer-line{ font-size:.92rem; color:var(--ink-soft); margin-bottom:12px; }
+.intro-offer-line strong{ color:var(--ink); }
+.intro-offer-link{
+  display:inline-block;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:.95rem;
+  color:var(--gold); text-decoration:none;
+  border:1.5px solid rgba(245,197,66,.5); border-radius:12px;
+  padding:11px 16px;
+  transition:background .15s ease, filter .15s ease;
+}
+.intro-offer-link:hover{ background:rgba(245,197,66,.1); }
+
 /* ---------- Boutons ---------- */
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:.4em;
